@@ -1,11 +1,9 @@
 import mongoose from "mongoose";
+import {config} from "./config.js";
 
 const connectDB = async (): Promise<void> => {
   try {
-    const mongoURI =
-      process.env.NODE_ENV === "production"
-        ? process.env.MONGO_URI_PROD
-        : process.env.MONGO_URI_DEV;
+    const mongoURI = config.mongodbUri;
 
     if (!mongoURI) {
       throw new Error(
