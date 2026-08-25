@@ -34,7 +34,7 @@ export const register = async (req: Request, res: Response): Promise<void> => {
       email: normalizedEmail,
       password,
       name,
-      dailyCalorieGoal: dailyCalorieGoal || 2000, // default to 2000 if not provided
+      dailyColorieGoal: dailyCalorieGoal || 2000, // default to 2000 if not provided
     });
 
     res.status(201).json({
@@ -42,7 +42,7 @@ export const register = async (req: Request, res: Response): Promise<void> => {
       user: {
         email: user.email,
         name: user.name,
-        dailyCalorieGoal: user.dailyCalorieGoal,
+        dailyColorieGoal: user.dailyColorieGoal,
         token: generateToken(user._id.toString()),
       },
     });
@@ -87,7 +87,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
       user: {
         email: user.email,
         name: user.name,
-        dailyCalorieGoal: user.dailyCalorieGoal,
+        dailyColorieGoal: user.dailyColorieGoal,
         token: token,
       },
     });
